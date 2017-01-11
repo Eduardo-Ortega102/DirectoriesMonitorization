@@ -9,27 +9,27 @@ echo -e "\n###########################\n\n	Análisis del día: $(date)\n\n######
 IFS=:
 for file in /bin/* /sbin/* /usr/bin/* /usr/sbin/*
 do
-	nuevo="true"
-	while read perm checksum filePath
-	do
-		if [[ $file == $filePath ]] 
-		then 
-			perm1=$(stat -c "%A" "$file")
-			checksum1=$(md5sum "$file")
-			checksum1=${checksum1/ *}
-			[[ $perm1 != $perm ]] && echo "Los permisos de \"$file\" han cambiado, originales:\"$perm\" actuales:\"$perm1\"."
-			[[ $checksum1 != $checksum ]] && echo "EL contenido de \"$file\" ha cambiado, checksum original:\"$checksum\" checksum actual:\"$checksum1\"."
-			nuevo="false"
-			break
-		fi
-	done < "$1"		
-	[[ $nuevo == "true" ]] && echo "El fichero \"$file\" es nuevo."
+   nuevo="true"
+   while read perm checksum filePath
+      do
+         if [[ $file == $filePath ]] 
+         then 
+            perm1=$(stat -c "%A" "$file")
+            checksum1=$(md5sum "$file")
+            checksum1=${checksum1/ *}
+            [[ $perm1 != $perm ]] && echo "Los permisos de \"$file\" han cambiado, originales:\"$perm\" actuales:\"$perm1\"."
+            [[ $checksum1 != $checksum ]] && echo "EL contenido de \"$file\" ha cambiado, checksum original:\"$checksum\" checksum actual:\"$checksum1\"."
+            nuevo="false"
+            break
+         fi
+   done < "$1"		
+   [[ $nuevo == "true" ]] && echo "El fichero \"$file\" es nuevo."
 done >> $LOG_FILE
 
 
 while read perms checksum filePath
 do
-	[[ ! -f "$filePath" ]] && echo "El fichero \"$filePath\" ha sido eliminado."
+   [[ ! -f "$filePath" ]] && echo "El fichero \"$filePath\" ha sido eliminado."
 done < "$1" >> $LOG_FILE
 
 
