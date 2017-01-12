@@ -14,7 +14,7 @@ The information about each file is printed following this structure: `file_permi
 
 This script needs a file created by `snapshot.ksh` as argument. 
 
-It will compare the information stored in the file with the current status of the directories, looking for:
+It will compare the information stored in that file with the current status of the directories, looking for:
 
 * Files which have been deleted
 * Files which have been created
