@@ -21,7 +21,7 @@ It will compare the information stored in that file with the current status of t
 * Files whose content has been modified
 * Files whose permissions has been modified
 
-When the script finds a file with any of that characteristics, adds a report in this log file: `/var/log/binchecker`.
+The script adds a report with the current date in the log file `/var/log/binchecker` each time it is excecuted and when it finds a file with any of that characteristics, also adds a report of that change.
 
 
 ## How do I use these scripts? 
