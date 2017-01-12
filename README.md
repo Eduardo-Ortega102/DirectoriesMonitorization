@@ -21,7 +21,7 @@ It will compare the information stored in that file with the current status of t
 * Files whose content has been modified
 * Files whose permissions has been modified
 
-The script adds a report with the current date in the log file `/var/log/binchecker` each time it is excecuted and also adds a report for any file which has any of the previously mentioned changes.
+The script adds a report with the current date and hour in the log file `/var/log/binchecker` each time it is excecuted and also adds a report for any file which has any of the previously mentioned changes.
 
 
 ## How do I use these scripts? 
@@ -29,4 +29,4 @@ The script adds a report with the current date in the log file `/var/log/binchec
 Before use them, make sure you have this:
 
 1. A Unix shell (the shell in which these scripts have been tested is `KSH`)
-2. The commands: `stat`, `md5sum` and `tr`
+2. The commands: `stat`, `md5sum`, `date` and `tr`
