@@ -2,6 +2,7 @@
 
 In this repository you will find two scripts: `snapshot.ksh` and `compare_snapshot.ksh`. These two shell scripts together provides a way to monitor changes performed on files stored in these directories: /bin, /sbin, /usr/bin, and /usr/sbin.
 
+
 ## Script 1: snapshot.ksh
 
 This script prints, into the standard output, information about each file stored in /bin, /sbin, /usr/bin, and /usr/sbin directories; so, you can pipe it to whatever file you want in order to store it.
@@ -10,6 +11,17 @@ The information about each file is printed following this structure: `file_permi
 
 
 ## Script 2: compare_snapshot.ksh
+
+This script needs a file created by `snapshot.ksh` as argument. 
+
+It will compare the information stored in the file with the current status of the directories, looking for:
+
+* Files which have been deleted
+* Files which have been created
+* Files whose content has been modified
+* Files whose permissions has been modified
+
+When the script finds a file with any of that characteristics, adds a report in this log file: `/var/log/binchecker`.
 
 
 ## How do I use these scripts? 
